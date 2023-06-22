@@ -1,0 +1,32 @@
+<body>
+<div class="container">
+    <h1>Nueva Materia</h1> 
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    
+       <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Sigla</mat-label>
+          <input required matInput formControlName="sigla">
+          <mat-error class="error" *ngIf="isSubmitted && myForm.get('sigla')!.invalid">
+            Este campo es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Materia</mat-label>
+          <input required matInput formControlName="nombre">
+          <mat-error class="error" *ngIf="isSubmitted && myForm.get('nombre')!.invalid">
+            Este campo es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Descripcion</mat-label>
+          <input required matInput formControlName="descripcion">
+          <mat-error class="error" *ngIf="isSubmitted && myForm.get('descripcion')!.invalid">
+            Este campo es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+   
+        <button mat-raised-button color="primary" type="submit" class="margin">Guardar</button>  
+        <button mat-raised-button color="warn" [mat-dialog-close]="false">Cancelar</button>
+  </form>
+</div>
+</body>

@@ -1,0 +1,37 @@
+<body>
+
+<div class="container">
+      <h1>Nuevo Estudiante</h1>   
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      
+         <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nombre</mat-label>
+            <input required matInput formControlName="nombre">
+            <mat-error class="error" *ngIf="isSubmitted && myForm.get('nombre')!.invalid">
+              Este campo es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Celular</mat-label>
+            <input type="number" required matInput formControlName="celular">
+            <mat-error class="error" *ngIf="isSubmitted && myForm.get('celular')!.invalid">
+              Este campo es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Fecha de Nacimiento</mat-label>
+            <input matInput required [matDatepicker]="picker" formControlName="fecha">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error class="error" *ngIf="isSubmitted && myForm.get('fecha')!.invalid">
+                Este campo es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit" class="margin">Guardar</button>  
+          <button mat-raised-button color="warn">Cancelar</button>
+      <!--<button mat-raised-button color="primary" type="submit" >Send</button>-->
+    </form>
+  </div>  
+</body> 
